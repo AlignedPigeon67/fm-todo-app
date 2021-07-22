@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Themes from "./context/Themes";
-import bg from "./images/bg-mobile-light.jpg";
+import lightMobBg from "./images/bg-mobile-light.jpg";
+import darkMobBg from "./images/bg-mobile-dark.jpg";
 import Header from "./components/Header";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
@@ -71,12 +72,12 @@ function App() {
   return (
     <ThemeProvider theme={isDarkMode ? Themes.dark : Themes.light}>
       <Main>
-        <Image src={bg} alt="background" />
+        <Image src={isDarkMode ? darkMobBg : lightMobBg} alt="background" />
         <Header
           themeToggleHandler={themeToggleHandler}
           isDarkMode={isDarkMode}
         />
-        <TodoInput addTodoHandler={addTodoHandler} />
+        <TodoInput addTodoHandler={addTodoHandler} isDarkMode={isDarkMode} />
         <TodoList
           todos={todos}
           deleteHandler={deleteHandler}
