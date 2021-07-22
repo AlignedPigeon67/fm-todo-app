@@ -12,6 +12,11 @@ const Form = styled.form`
   margin-top: 30px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.cardBackground};
+
+  @media (min-width: 700px) {
+    width: 560px;
+    height: 60px;
+  }
 `;
 
 const Input = styled.input`
@@ -33,6 +38,10 @@ const Input = styled.input`
   }
   :-ms-input-placeholder {
     color: ${(props) => (props.isDarkMode ? "hsl(234, 39%, 85%)" : "")};
+  }
+
+  @media (min-width: 700px) {
+    font-size: 18px;
   }
 `;
 

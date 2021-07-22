@@ -14,6 +14,10 @@ export const Item = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.borderCircle};
   background-color: ${({ theme }) => theme.cardBackground};
   color: ${({ theme }) => theme.textLight};
+
+  @media (min-width: 700px) {
+    height: 60px;
+  }
 `;
 
 const Text = styled.p`
@@ -23,6 +27,10 @@ const Text = styled.p`
 
   text-decoration: ${(props) => (props.isComplete ? "line-through" : "none")};
   opacity: ${(props) => (props.isComplete ? "0.5" : "1")};
+
+  @media (min-width: 700px) {
+    font-size: 18px;
+  }
 `;
 
 const Image = styled.img`
