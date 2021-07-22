@@ -1,8 +1,11 @@
 import { useState } from "react";
+import useWindowSize from "./hooks/useWindowSize";
 import styled, { ThemeProvider } from "styled-components";
 import Themes from "./context/Themes";
 import lightMobBg from "./images/bg-mobile-light.jpg";
 import darkMobBg from "./images/bg-mobile-dark.jpg";
+import lightDeskBg from "./images/bg-desktop-light.jpg";
+import darkDeskBg from "./images/bg-desktop-dark.jpg";
 import Header from "./components/Header";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
@@ -13,7 +16,7 @@ const Main = styled.main`
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   z-index: 0;
   padding: 45px 10px;
 
@@ -33,6 +36,16 @@ const Image = styled.img`
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [todos, setTodos] = useState(initialState);
+  const windowSize = useWindowSize();
+
+  const bgImage =
+    windowSize.width > 375
+      ? isDarkMode
+        ? darkDeskBg
+        : lightDeskBg
+      : isDarkMode
+      ? darkMobBg
+      : lightMobBg;
 
   const addTodoHandler = (e) => {
     e.preventDefault();
@@ -72,7 +85,7 @@ function App() {
   return (
     <ThemeProvider theme={isDarkMode ? Themes.dark : Themes.light}>
       <Main>
-        <Image src={isDarkMode ? darkMobBg : lightMobBg} alt="background" />
+        <Image src={bgImage} alt="background" />
         <Header
           themeToggleHandler={themeToggleHandler}
           isDarkMode={isDarkMode}
