@@ -11,7 +11,7 @@ const List = styled.div`
   height: auto;
   margin-top: 15px;
   border-radius: 5px;
-  box-shadow: 0 50px 15px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 100px 30px rgba(0, 0, 0, 0.1);
 
   > * {
     &:first-child {
