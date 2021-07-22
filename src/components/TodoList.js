@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import TodoItem, { Item } from "./TodoItem";
+import TodoFilter from "./TodoFilter";
+import { MutedText } from "./StyledItems";
 
 const List = styled.div`
   display: flex;
@@ -26,38 +28,6 @@ const List = styled.div`
 
   @media (min-width: 700px) {
     width: 560px;
-  }
-`;
-
-const MutedText = styled.div`
-  opacity: 0.5;
-  font-size: 12px;
-  color: ${({ theme }) => theme.textMain};
-
-  &:hover {
-    cursor: ${(props) => (props.clickable ? "pointer" : "inherit")};
-  }
-`;
-
-const FilterContainer = styled(Item)`
-  width: 320px;
-  min-height: 50px;
-  margin: 20px 0;
-  border-radius: 5px;
-  border: none;
-  justify-content: center;
-  gap: 14px;
-  display: ${({ hidden }) => (hidden ? "none" : "")};
-`;
-
-const FilterText = styled(MutedText)`
-  font-size: 16px;
-  opacity: 0.75;
-  color: ${(props) => (props.active ? "#1DA1F2" : "")};
-
-  &:hover {
-    cursor: pointer;
-    opacity: 1;
   }
 `;
 
@@ -97,51 +67,23 @@ const TodoList = ({
           <MutedText>
             {todos.filter((todo) => !todo.isComplete).length} items left
           </MutedText>
-          <FilterContainer hidden={windowSize.width < 700 ? true : false}>
-            <FilterText
-              active={currentFilter === "all" ? "active" : ""}
-              onClick={filterClickHandler}
-            >
-              All
-            </FilterText>
-            <FilterText
-              active={currentFilter === "active" ? "active" : ""}
-              onClick={filterClickHandler}
-            >
-              Active
-            </FilterText>
-            <FilterText
-              active={currentFilter === "completed" ? "active" : ""}
-              onClick={filterClickHandler}
-            >
-              Completed
-            </FilterText>
-          </FilterContainer>
+          {windowSize.width > 375 && (
+            <TodoFilter
+              filterClickHandler={filterClickHandler}
+              currentFilter={currentFilter}
+            />
+          )}
           <MutedText clickable onClick={clearCompletedHandler}>
             Clear Completed
           </MutedText>
         </Item>
       </List>
-      <FilterContainer hidden={windowSize.width >= 700 ? true : false}>
-        <FilterText
-          active={currentFilter === "all" ? "active" : ""}
-          onClick={filterClickHandler}
-        >
-          All
-        </FilterText>
-        <FilterText
-          active={currentFilter === "active" ? "active" : ""}
-          onClick={filterClickHandler}
-        >
-          Active
-        </FilterText>
-        <FilterText
-          active={currentFilter === "completed" ? "active" : ""}
-          onClick={filterClickHandler}
-        >
-          Completed
-        </FilterText>
-      </FilterContainer>
+      {windowSize.width > 375 || (
+        <TodoFilter
+          filterClickHandler={filterClickHandler}
+          currentFilter={currentFilter}
+        />
+      )}
     </>
   );
 };
