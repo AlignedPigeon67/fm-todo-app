@@ -9,7 +9,7 @@ const List = styled.div`
   flex-direction: column;
   width: 320px;
   height: auto;
-  margin-top: 20px;
+  margin-top: 15px;
   border-radius: 5px;
   box-shadow: 0 50px 15px 1px rgba(0, 0, 0, 0.05);
 
@@ -28,6 +28,7 @@ const List = styled.div`
 
   @media (min-width: 700px) {
     width: 560px;
+    margin-top: 25px;
   }
 `;
 
