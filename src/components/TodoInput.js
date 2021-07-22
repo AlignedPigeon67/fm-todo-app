@@ -20,8 +20,8 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  width: 85%;
-  height: 95%;
+  width: 89%;
+  min-height: 50px;
   border: none;
   font-family: "Josefin Sans", sans-serif;
   background-color: ${({ theme }) => theme.cardBackground};
@@ -41,6 +41,7 @@ const Input = styled.input`
   }
 
   @media (min-width: 700px) {
+    width: 89.5%;
     font-size: 18px;
   }
 `;
