@@ -16,7 +16,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   z-index: 0;
   padding: 45px 10px;
