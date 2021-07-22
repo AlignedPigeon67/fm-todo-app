@@ -25,14 +25,14 @@ const Input = styled.input`
   &:focus {
     outline: none;
   }
-  /* 
+
   ::placeholder,
   ::-webkit-input-placeholder {
-    color: ${({ theme }) => theme.textMain};
+    color: ${(props) => (props.isDarkMode ? "hsl(234, 39%, 85%)" : "")};
   }
   :-ms-input-placeholder {
-    color: ${({ theme }) => theme.textMain};
-  } */
+    color: ${(props) => (props.isDarkMode ? "hsl(234, 39%, 85%)" : "")};
+  }
 `;
 
 const Circle = styled(CircleIcon)`
@@ -42,11 +42,15 @@ const Circle = styled(CircleIcon)`
   }
 `;
 
-const TodoInput = ({ addTodoHandler }) => {
+const TodoInput = ({ addTodoHandler, isDarkMode }) => {
   return (
     <Form onSubmit={addTodoHandler}>
       <Circle />
-      <Input type="text" placeholder="Create a new todo..." />
+      <Input
+        isDarkMode={isDarkMode}
+        type="text"
+        placeholder="Create a new todo..."
+      />
     </Form>
   );
 };
