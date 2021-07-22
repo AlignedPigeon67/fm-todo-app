@@ -69,7 +69,7 @@ const TodoList = ({
           <MutedText>
             {todos.filter((todo) => !todo.isComplete).length} items left
           </MutedText>
-          {windowSize.width > 375 && (
+          {windowSize.width > 700 && (
             <TodoFilter
               filterClickHandler={filterClickHandler}
               currentFilter={currentFilter}
@@ -80,7 +80,7 @@ const TodoList = ({
           </MutedText>
         </Item>
       </List>
-      {windowSize.width > 375 || (
+      {windowSize.width > 700 || (
         <TodoFilter
           filterClickHandler={filterClickHandler}
           currentFilter={currentFilter}
