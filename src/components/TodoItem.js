@@ -40,6 +40,14 @@ const Image = styled.img`
   &:hover {
     cursor: pointer;
   }
+
+  @media (min-width: 700px) {
+    opacity: ${({ deleteIcon }) => deleteIcon && 0};
+
+    ${Item}:hover & {
+      opacity: 1;
+    }
+  }
 `;
 
 const CheckedCircleIcon = styled(CircleIcon)`
@@ -48,11 +56,9 @@ const CheckedCircleIcon = styled(CircleIcon)`
   align-items: center;
   border: none;
   background: linear-gradient(to bottom right, #64a4fc, #8431c7);
-  display: ${({ windowSize }) => windowSize > 375 && "none"};
 
   &:hover {
     cursor: pointer;
-    display: block;
   }
 `;
 
@@ -75,7 +81,11 @@ const TodoItem = ({
         />
       )}
       <Text isComplete={todo.isComplete}>{todo.message}</Text>
-      <Image src={CrossIcon} onClick={(e) => deleteHandler(e, todo.id)} />
+      <Image
+        deleteIcon={true}
+        src={CrossIcon}
+        onClick={(e) => deleteHandler(e, todo.id)}
+      />
     </Item>
   );
 };
