@@ -7,7 +7,7 @@ import { MutedText } from "./StyledItems";
 const List = styled.div`
   display: flex;
   flex-direction: column;
-  width: 320px;
+  width: 90%;
   height: auto;
   margin-top: 15px;
   border-radius: 5px;

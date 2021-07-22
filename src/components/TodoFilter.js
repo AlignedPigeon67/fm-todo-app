@@ -3,13 +3,17 @@ import { MutedText } from "./StyledItems";
 import { Item } from "./TodoItem";
 
 const FilterContainer = styled(Item)`
-  width: 320px;
+  width: 90%;
   min-height: 50px;
   margin: 20px 0;
   border-radius: 5px;
   border: none;
   justify-content: center;
   gap: 14px;
+
+  @media (min-width: 700px) {
+    width: 350px;
+  }
 `;
 
 const FilterText = styled(MutedText)`

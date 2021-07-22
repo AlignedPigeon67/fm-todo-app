@@ -5,7 +5,7 @@ const Form = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 320px;
+  width: 90%;
   min-height: 50px;
   z-index: 2;
   padding: 0 20px;
