@@ -48,13 +48,20 @@ const CheckedCircleIcon = styled(CircleIcon)`
   align-items: center;
   border: none;
   background: linear-gradient(to bottom right, #64a4fc, #8431c7);
+  display: ${({ windowSize }) => windowSize > 375 && "none"};
 
   &:hover {
     cursor: pointer;
+    display: block;
   }
 `;
 
-const TodoItem = ({ todo, deleteHandler, completedToggleHandler }) => {
+const TodoItem = ({
+  todo,
+  deleteHandler,
+  completedToggleHandler,
+  windowSize,
+}) => {
   return (
     <Item>
       {todo.isComplete ? (
@@ -62,7 +69,10 @@ const TodoItem = ({ todo, deleteHandler, completedToggleHandler }) => {
           <Image src={CheckIcon} style={{ height: "8px" }} />
         </CheckedCircleIcon>
       ) : (
-        <CircleIcon onClick={(e) => completedToggleHandler(e, todo.id)} />
+        <CircleIcon
+          onClick={(e) => completedToggleHandler(e, todo.id)}
+          windowSize={windowSize}
+        />
       )}
       <Text isComplete={todo.isComplete}>{todo.message}</Text>
       <Image src={CrossIcon} onClick={(e) => deleteHandler(e, todo.id)} />

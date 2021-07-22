@@ -62,6 +62,7 @@ const TodoList = ({
             todo={todo}
             deleteHandler={deleteHandler}
             completedToggleHandler={completedToggleHandler}
+            windowSize={windowSize}
           />
         ))}
         <Item>
