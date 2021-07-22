@@ -23,6 +23,10 @@ const List = styled.div`
       border: none;
     }
   }
+
+  @media (min-width: 700px) {
+    width: 560px;
+  }
 `;
 
 const MutedText = styled.div`
@@ -43,6 +47,7 @@ const FilterContainer = styled(Item)`
   border: none;
   justify-content: center;
   gap: 14px;
+  display: ${({ hidden }) => (hidden ? "none" : "")};
 `;
 
 const FilterText = styled(MutedText)`
@@ -61,6 +66,7 @@ const TodoList = ({
   deleteHandler,
   completedToggleHandler,
   clearCompletedHandler,
+  windowSize,
 }) => {
   const [currentFilter, setCurrentFilter] = useState("all");
 
@@ -91,12 +97,32 @@ const TodoList = ({
           <MutedText>
             {todos.filter((todo) => !todo.isComplete).length} items left
           </MutedText>
+          <FilterContainer hidden={windowSize.width < 700 ? true : false}>
+            <FilterText
+              active={currentFilter === "all" ? "active" : ""}
+              onClick={filterClickHandler}
+            >
+              All
+            </FilterText>
+            <FilterText
+              active={currentFilter === "active" ? "active" : ""}
+              onClick={filterClickHandler}
+            >
+              Active
+            </FilterText>
+            <FilterText
+              active={currentFilter === "completed" ? "active" : ""}
+              onClick={filterClickHandler}
+            >
+              Completed
+            </FilterText>
+          </FilterContainer>
           <MutedText clickable onClick={clearCompletedHandler}>
             Clear Completed
           </MutedText>
         </Item>
       </List>
-      <FilterContainer>
+      <FilterContainer hidden={windowSize.width >= 700 ? true : false}>
         <FilterText
           active={currentFilter === "all" ? "active" : ""}
           onClick={filterClickHandler}
