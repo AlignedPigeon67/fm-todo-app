@@ -47,7 +47,8 @@ const FilterContainer = styled(Item)`
 
 const FilterText = styled(MutedText)`
   font-size: 16px;
-  opacity: 0.65;
+  opacity: 0.75;
+  color: ${(props) => (props.active ? "#1DA1F2" : "")};
 
   &:hover {
     cursor: pointer;
@@ -96,9 +97,24 @@ const TodoList = ({
         </Item>
       </List>
       <FilterContainer>
-        <FilterText onClick={filterClickHandler}>All</FilterText>
-        <FilterText onClick={filterClickHandler}>Active</FilterText>
-        <FilterText onClick={filterClickHandler}>Completed</FilterText>
+        <FilterText
+          active={currentFilter === "all" ? "active" : ""}
+          onClick={filterClickHandler}
+        >
+          All
+        </FilterText>
+        <FilterText
+          active={currentFilter === "active" ? "active" : ""}
+          onClick={filterClickHandler}
+        >
+          Active
+        </FilterText>
+        <FilterText
+          active={currentFilter === "completed" ? "active" : ""}
+          onClick={filterClickHandler}
+        >
+          Completed
+        </FilterText>
       </FilterContainer>
     </>
   );
