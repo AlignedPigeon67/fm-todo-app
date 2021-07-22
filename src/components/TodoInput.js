@@ -6,7 +6,7 @@ const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   width: 320px;
-  height: 50px;
+  min-height: 50px;
   z-index: 2;
   padding: 0 20px;
   margin-top: 30px;
@@ -20,7 +20,8 @@ const Input = styled.input`
   border: none;
   font-family: "Josefin Sans", sans-serif;
   background-color: ${({ theme }) => theme.cardBackground};
-  color: ${({ theme }) => theme.textMain};
+  /* color: ${({ theme }) => theme.textMain}; */
+  color: ${(props) => (props.isDarkMode ? "hsl(234, 39%, 85%)" : "")};
 
   &:focus {
     outline: none;
