@@ -10,3 +10,13 @@ export const CircleIcon = styled.div`
     cursor: pointer;
   }
 `;
+
+export const MutedText = styled.div`
+  opacity: 0.5;
+  font-size: 12px;
+  color: ${({ theme }) => theme.textMain};
+
+  &:hover {
+    cursor: ${(props) => (props.clickable ? "pointer" : "inherit")};
+  }
+`;
