@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import initialState from "./data/initialState";
+import { v4 as uuidv4 } from "uuid";
 
 const Main = styled.main`
   display: flex;
@@ -22,6 +23,10 @@ const Main = styled.main`
 
   background-color: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.headingText};
+
+  @media (min-width: 700px) {
+    padding: 65px 10px;
+  }
 `;
 
 const Image = styled.img`
@@ -31,6 +36,10 @@ const Image = styled.img`
   position: absolute;
   top: 0;
   left: 0;
+
+  @media (min-width: 700px) {
+    height: 300px;
+  }
 `;
 
 function App() {
@@ -52,7 +61,7 @@ function App() {
     const input = e.target.lastChild.value.trim();
     if (input.length < 1) return;
     const newTodo = {
-      id: todos.length,
+      id: uuidv4(),
       message: input,
       isComplete: false,
     };
@@ -96,6 +105,7 @@ function App() {
           deleteHandler={deleteHandler}
           completedToggleHandler={completedToggleHandler}
           clearCompletedHandler={clearCompletedHandler}
+          windowSize={windowSize}
         />
       </Main>
     </ThemeProvider>
