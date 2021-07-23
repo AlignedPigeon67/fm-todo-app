@@ -68,6 +68,20 @@ const CheckedCircleIcon = styled(CircleIcon)`
   }
 `;
 
+const UncheckedCircleIcon = styled(CheckedCircleIcon)`
+  background: ${({ theme }) => theme.borderCircle};
+  &:hover {
+    background: linear-gradient(to bottom right, #64a4fc, #8431c7);
+  }
+`;
+
+const Block = styled.div`
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background-color: ${({ theme }) => theme.cardBackground};
+`;
+
 const TodoItem = ({
   todo,
   deleteHandler,
@@ -81,10 +95,12 @@ const TodoItem = ({
           <Image src={CheckIcon} style={{ height: "8px" }} />
         </CheckedCircleIcon>
       ) : (
-        <CircleIcon
+        <UncheckedCircleIcon
           onClick={(e) => completedToggleHandler(e, todo.id)}
           windowSize={windowSize}
-        />
+        >
+          <Block />
+        </UncheckedCircleIcon>
       )}
       <Text isComplete={todo.isComplete}>{todo.message}</Text>
       <Image
