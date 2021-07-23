@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/fm-todo-app/static/css/main.ae01bcd4.chunk.css",
-    "main.js": "/fm-todo-app/static/js/main.7d555d92.chunk.js",
-    "main.js.map": "/fm-todo-app/static/js/main.7d555d92.chunk.js.map",
+    "main.css": "/fm-todo-app/static/css/main.e023fc82.chunk.css",
+    "main.js": "/fm-todo-app/static/js/main.dbca515b.chunk.js",
+    "main.js.map": "/fm-todo-app/static/js/main.dbca515b.chunk.js.map",
     "runtime-main.js": "/fm-todo-app/static/js/runtime-main.143e772d.js",
     "runtime-main.js.map": "/fm-todo-app/static/js/runtime-main.143e772d.js.map",
     "static/js/2.f8d0a832.chunk.js": "/fm-todo-app/static/js/2.f8d0a832.chunk.js",
     "static/js/2.f8d0a832.chunk.js.map": "/fm-todo-app/static/js/2.f8d0a832.chunk.js.map",
     "index.html": "/fm-todo-app/index.html",
-    "static/css/main.ae01bcd4.chunk.css.map": "/fm-todo-app/static/css/main.ae01bcd4.chunk.css.map",
+    "static/css/main.e023fc82.chunk.css.map": "/fm-todo-app/static/css/main.e023fc82.chunk.css.map",
     "static/js/2.f8d0a832.chunk.js.LICENSE.txt": "/fm-todo-app/static/js/2.f8d0a832.chunk.js.LICENSE.txt",
     "static/media/bg-desktop-dark.73e47dbb.jpg": "/fm-todo-app/static/media/bg-desktop-dark.73e47dbb.jpg",
     "static/media/bg-desktop-light.3508d620.jpg": "/fm-todo-app/static/media/bg-desktop-light.3508d620.jpg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.143e772d.js",
     "static/js/2.f8d0a832.chunk.js",
-    "static/css/main.ae01bcd4.chunk.css",
-    "static/js/main.7d555d92.chunk.js"
+    "static/css/main.e023fc82.chunk.css",
+    "static/js/main.dbca515b.chunk.js"
   ]
 }
