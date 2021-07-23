@@ -21,14 +21,12 @@ export const Item = styled.div`
 `;
 
 const Text = styled.p`
-  /* width: 100%; */
   margin: auto;
   margin-left: 12px;
   font-size: 12px;
   overflow: hidden;
   max-width: 80%;
   color: ${({ theme }) => theme.textMain};
-
   text-decoration: ${(props) => (props.isComplete ? "line-through" : "none")};
   opacity: ${(props) => (props.isComplete ? "0.5" : "1")};
 
